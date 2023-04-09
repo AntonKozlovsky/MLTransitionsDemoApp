@@ -1,4 +1,4 @@
 # MLTransitionsDemoApp
 Showing animated transitions using ML
 
-<video src='ResultDemo.mov' width=180/> 
+[![Watch the video]](https://github.com/AntonKozlovsky/MLTransitionsDemoApp/blob/dev/ResultDemo.mov)
