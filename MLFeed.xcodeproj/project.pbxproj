@@ -15,6 +15,7 @@
 		E774627229E2115400DD9786 /* CIImage+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E774627129E2115400DD9786 /* CIImage+CGImage.swift */; };
 		E774627729E2185A00DD9786 /* music.aac in Resources */ = {isa = PBXBuildFile; fileRef = E774627629E2170900DD9786 /* music.aac */; };
 		E774627929E219FF00DD9786 /* AACPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E774627829E219FF00DD9786 /* AACPlayer.swift */; };
+		E78D22FF29E5314200FE88D5 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D22FE29E5314200FE88D5 /* AudioService.swift */; };
 		E7A23E0429E14D4B00DB13C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A23E0329E14D4B00DB13C4 /* AppDelegate.swift */; };
 		E7A23E0629E14D4B00DB13C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A23E0529E14D4B00DB13C4 /* SceneDelegate.swift */; };
 		E7A23E0829E14D4B00DB13C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A23E0729E14D4B00DB13C4 /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 		E774627129E2115400DD9786 /* CIImage+CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+CGImage.swift"; sourceTree = "<group>"; };
 		E774627629E2170900DD9786 /* music.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.aac; sourceTree = "<group>"; };
 		E774627829E219FF00DD9786 /* AACPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACPlayer.swift; sourceTree = "<group>"; };
+		E78D22FE29E5314200FE88D5 /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		E7A23E0029E14D4B00DB13C4 /* MLFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A23E0329E14D4B00DB13C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7A23E0529E14D4B00DB13C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				E7A23E1A29E1524A00DB13C4 /* ImageProcessor.swift */,
 				E7A23E2129E1697000DB13C4 /* MLEngine.swift */,
 				E7A23E3629E1F1DF00DB13C4 /* ImageSeriesManager.swift */,
+				E78D22FE29E5314200FE88D5 /* AudioService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				E75902F229E2AEAE008D0FEE /* UIImageView+Reset.swift in Sources */,
 				E7A23E3529E1EB0F00DB13C4 /* ImageSeriesLooper.swift in Sources */,
 				E7A23E0629E14D4B00DB13C4 /* SceneDelegate.swift in Sources */,
+				E78D22FF29E5314200FE88D5 /* AudioService.swift in Sources */,
 				E774627029E2100E00DD9786 /* CIImage+UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

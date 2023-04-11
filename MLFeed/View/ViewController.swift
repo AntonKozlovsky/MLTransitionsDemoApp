@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     
     private var imageSeriesManager: ImageSeriesManager!
     private var seriesLooper: ImageSeriesLooper!
-    private var player = AACPlayer()
+    private var audioService = AudioService()
 }
 
 // MARK: - Overrides
@@ -48,11 +48,12 @@ private extension ViewController {
             return
         }
         
-        do {
-            try player.play(itemAt: audioUrl)
-        } catch {
-            // TODO: Show error
-            assertionFailure(error.localizedDescription)
+        Task {
+            do {
+                try await audioService.play(at: audioUrl)
+            } catch {
+                // TODO: Handle error
+            }
         }
     }
     
