@@ -3,9 +3,7 @@ import UIKit
 
 extension CIImage {
     
-    func cgImage() -> CGImage? {
-        let context = CIContext(options: nil)
-        return context.createCGImage(self,
-                                     from: extent)
+    func cgImage(with context: CIContext) -> CGImage? {
+        context.createCGImage(self, from: extent)
     }
 }

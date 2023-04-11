@@ -4,7 +4,11 @@ import CoreImage.CIFilter
 import Accelerate
 import CoreGraphics
 
-class ImageProcessor {}
+class ImageProcessor {
+    
+    // MARK: Private
+    private let context = CIContext(options: nil)
+}
 
 extension ImageProcessor {
     
@@ -73,7 +77,7 @@ extension ImageProcessor {
                                          withSize: size)
         
         let ciImage = CIImage(cvImageBuffer: cvBuffer)
-        guard let resultImage = ciImage.uiImage() else {
+        guard let resultImage = ciImage.uiImage(with: context) else {
             throw Error.commonError
         }
         return resultImage
@@ -108,8 +112,8 @@ extension ImageProcessor {
         let foreground = try slice(image: ciImage, with: invertedMask)
         let background = try slice(image: ciImage, with: sharpMask)
         
-        guard let foregroundCGImage = foreground.cgImage(),
-              let backgroundCGImage = background.cgImage() else {
+        guard let foregroundCGImage = foreground.cgImage(with: context),
+              let backgroundCGImage = background.cgImage(with: context) else {
             
             throw Error.filterError
         }
@@ -330,52 +334,6 @@ private extension ImageProcessor {
     enum Constants {
         
         static let blackColor888: [Pixel_8] = [0, 0, 0]
-        static let blackColor8888: [Pixel_8] = [0, 0, 0, 0]//100]
+        static let blackColor8888: [Pixel_8] = [0, 0, 0, 0]
     }
-}
-
-
-
-
-public extension CGBitmapInfo {
-
-    enum ComponentLayout {
-
-        case bgra
-        case abgr
-        case argb
-        case rgba
-        case bgr
-        case rgb
-
-        var count: Int {
-            switch self {
-            case .bgr, .rgb: return 3
-            default: return 4
-            }
-        }
-
-    }
-
-    var componentLayout: ComponentLayout? {
-        guard let alphaInfo = CGImageAlphaInfo(rawValue: rawValue & Self.alphaInfoMask.rawValue) else { return nil }
-        let isLittleEndian = contains(.byteOrder32Little)
-
-        if alphaInfo == .none {
-            return isLittleEndian ? .bgr : .rgb
-        }
-        let alphaIsFirst = alphaInfo == .premultipliedFirst || alphaInfo == .first || alphaInfo == .noneSkipFirst
-
-        if isLittleEndian {
-            return alphaIsFirst ? .bgra : .abgr
-        } else {
-            return alphaIsFirst ? .argb : .rgba
-        }
-    }
-
-    var chromaIsPremultipliedByAlpha: Bool {
-        let alphaInfo = CGImageAlphaInfo(rawValue: rawValue & Self.alphaInfoMask.rawValue)
-        return alphaInfo == .premultipliedFirst || alphaInfo == .premultipliedLast
-    }
-
 }
