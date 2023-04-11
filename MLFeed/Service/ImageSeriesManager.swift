@@ -31,9 +31,9 @@ extension ImageSeriesManager {
                 
                 do {
                     let images = try series(from: sourceImage)
-                    let series = ImageSeries(originalImage: images[0],
-                                             backgroundImage: images[2],
-                                             silhouetteImage: images[1])
+                    let series = ImageSeries(originalImage: sourceImage,
+                                             backgroundImage: images[1],
+                                             silhouetteImage: images[0])
                     seriesImages.append(series)
                 } catch {
                     print("Error \(error.localizedDescription)")
@@ -62,8 +62,7 @@ private extension ImageSeriesManager {
         let scaledUpForeground = try imageProcessor.sizeUp(image: slices[1],
                                                            toFit: image.size)
         
-        return [image,
-                scaledUpBackground,
+        return [scaledUpBackground,
                 scaledUpForeground]
     }
 }
